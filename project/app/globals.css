@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color scheme for Project Drishti futuristic theme */
+  --background: #1a1a1a; /* Deep charcoal background */
+  --foreground: #ffffff; /* White text */
+  --card: #2a2a2a; /* Slightly lighter card background */
+  --card-foreground: #ffffff; /* White card text */
+  --popover: #2a2a2a; /* Card color for popovers */
+  --popover-foreground: #ffffff; /* White popover text */
+  --primary: #ff9933; /* Saffron orange */
+  --primary-foreground: #1a1a1a; /* Dark text on orange */
+  --secondary: #007bff; /* Electric blue */
+  --secondary-foreground: #ffffff; /* White text on blue */
+  --muted: #404040; /* Muted gray */
+  --muted-foreground: #a0a0a0; /* Light gray for muted text */
+  --accent: #007bff; /* Electric blue for accents */
+  --accent-foreground: #ffffff; /* White text on blue */
+  --destructive: #dc2626; /* Red for errors */
+  --destructive-foreground: #ffffff; /* White text on red */
+  --border: #404040; /* Gray borders */
+  --input: #2a2a2a; /* Dark input background */
+  --ring: rgba(255, 153, 51, 0.5); /* Saffron orange focus ring */
+  --chart-1: #ff9933; /* Saffron orange for charts */
+  --chart-2: #007bff; /* Electric blue for charts */
+  --chart-3: #00ff88; /* Green accent */
+  --chart-4: #ff6b6b; /* Red accent */
+  --chart-5: #ffd93d; /* Yellow accent */
+  --radius: 0.625rem;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff9933;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #007bff;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: rgba(255, 153, 51, 0.5);
+}
+
+.dark {
+  /* Dark mode uses same colors since we're designing for dark mode */
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #2a2a2a;
+  --card-foreground: #ffffff;
+  --popover: #2a2a2a;
+  --popover-foreground: #ffffff;
+  --primary: #ff9933;
+  --primary-foreground: #1a1a1a;
+  --secondary: #007bff;
+  --secondary-foreground: #ffffff;
+  --muted: #404040;
+  --muted-foreground: #a0a0a0;
+  --accent: #007bff;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #404040;
+  --input: #2a2a2a;
+  --ring: rgba(255, 153, 51, 0.5);
+  --chart-1: #ff9933;
+  --chart-2: #007bff;
+  --chart-3: #00ff88;
+  --chart-4: #ff6b6b;
+  --chart-5: #ffd93d;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff9933;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #007bff;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: rgba(255, 153, 51, 0.5);
+}
+
+@theme inline {
+  /* Updated font configuration for Inter and Orbitron */
+  --font-sans: "Inter", var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-orbitron: "Orbitron", "Inter", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom utility classes for Orbitron font */
+.font-orbitron {
+  font-family: var(--font-orbitron);
+}
+
+/* Added custom animations for the hero section */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 153, 51, 0.6);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
